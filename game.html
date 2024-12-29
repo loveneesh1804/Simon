@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon</title>
+    <link rel="icon" href="https://w1.pngwing.com/pngs/138/573/png-transparent-simon-area-game-simon-says-smile-smiley-circle-symbol-thumbnail.png">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1 class="title">Press Enter to start</h1>
+    <div class="outer">
+      <div class="green"></div>
+      <div class="red"></div>
+      <div class="yellow"></div>
+      <div class="blue"></div>
+      <label class="label">Simon</label>
+    </div>
+  </body>
+</html>
+<script src="./script.js"></script>
+<script>
+  window.onresize = handleResize;
+
+  function handleResize() {
+    if (window.innerWidth < 900) {
+      title.innerText = "Click to start";
+    } else {
+      title.innerText = "Press Enter to start";
+    }
+  }
+  handleResize();
+</script>

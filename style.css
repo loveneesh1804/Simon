@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Press Start 2P", serif;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(5, 5, 79);
+  color: gold;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+.menu {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.menu > h1 {
+  font-size: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+}
+.menu > div > p {
+  font-size: 25px;
+  text-align: center;
+  margin: 30px 0px;
+  cursor: pointer;
+  position: relative;
+}
+.menu > div > p::before {
+  position: absolute;
+  top: 50%;
+  left: -15%;
+  content: "";
+  border: 10px solid transparent;
+  border-left: 10px solid gold;
+  transform: translateY(-50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+.menu > div > p:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ////////////////////////////////// Game.html /////////////////////////////// */
+
+.outer {
+  border-radius: 50%;
+  display: grid;
+  width: 35%;
+  height: 70%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  border: 20px solid black;
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+  cursor: pointer;
+}
+.title{
+    font-size: 40px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.outer > div {
+  width: 105%;
+  height: 105%;
+  border-radius: 40px;
+  border: 10px solid black;
+}
+.outer > .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  width: 40%;
+  height: 39%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-transform: uppercase;
+  color: silver;
+  font-size: 30px;
+}
+.red {
+  background-color: red;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.blue {
+  background-color: blue;
+}
+
+.blip {
+  animation: blip 0.3s infinite ease-in-out forwards;
+}
+@keyframes blip {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+.flash {
+  animation: blip 0.3s infinite ease-in-out forwards;
+}
+.error {
+  background-color: red;
+  animation: blip 0.3s infinite ease-in-out forwards;
+}
+.go-back{
+    padding: 10px 20px;
+    background-color: gold;
+    color: rgb(5, 5, 79);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media all and (max-width: 900px) {
+  .menu {
+    width: 70%;
+  }
+  .outer {
+    width: 90%;
+    height: 45%;
+    border: 10px solid black;
+    gap: 0px;
+  }
+  .outer > .label {
+    font-size: 20px;
+  }
+  .title{
+    font-size: 20px;
+    width: 90%;
+  }
+}
