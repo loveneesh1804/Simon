@@ -5,21 +5,9 @@ var gamePattern = [];
 var title = document.querySelector(".title");
 var boxes = document.querySelectorAll(".outer > div");
 
-window.onkeydown = (e) => {
-  if (e.key === "Enter" && !isStarted) handleStart();
+window.onload = (e) => {
+  if (!isStarted) handleStart();
 };
-
-function hanldeStartType(){
-  if(window.innerWidth < 900){
-    window.onclick = () => {
-      if (!isStarted) handleStart();
-    };
-  }
-}
-
-window.onresize = function(){
-  hanldeStartType();
-}
 
 function handleStart(){
   isStarted = true;
@@ -104,12 +92,7 @@ function handleSort(arr){
       }
     }
   }
-  return arr.reduce((acc, el, i) => {
-    if (i < 3) {
-      acc.push(el);
-    }
-    return acc;
-  }, []);
+  return arr.filter((el,i)=>i<3);
 }
 
 function handleScores(lvl){
@@ -123,5 +106,3 @@ function handleScores(lvl){
     return localStorage.setItem('scores',JSON.stringify(handleSort(scores)));
   }
 }
-
-hanldeStartType();
